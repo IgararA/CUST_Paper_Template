@@ -36,6 +36,7 @@
 \usepackage{algorithmicx}
 \usepackage[hidelinks]{hyperref} %目录跳转
 \usepackage{graphicx}
+\usepackage{caption}
 \usepackage{subcaption}
 % \usepackage{showframe}
 
@@ -106,7 +107,9 @@
 % 使用 AutoFakeBold 可以实现「伪粗体」，和word中相同。
  
 
-\captionsetup[subfigure]{labelformat=brace, labelsep=space} % 子图a)效果加空格
-\DeclareCaptionLabelFormat{figureLableFormat}{{\zihao{-5} 图 \thesection.\arabic{figure}}}
+\DeclareCaptionLabelFormat{figureLableFormat}{\zihao{5}{图\thesection.\arabic{figure}}}
+\DeclareCaptionFormat{figureFormat}{\zihao{5}#1#2#3} % label sep及caption本身字号设置
 
-\captionsetup[figure]{labelformat=figureLableFormat}
+
+\captionsetup[subfigure]{labelformat=brace, labelsep=space, format=figureFormat} % 子图a)效果加空格
+\captionsetup[figure]{labelformat=figureLableFormat, labelsep=space, format=figureFormat}
