@@ -1,0 +1,110 @@
+\documentclass{ctexart}
+
+\ctexset{
+  section={
+  name={第,章},
+  number = \bfseries \fontspec{SimSun} \arabic{section},
+  format= \bfseries \centering \zihao{3}
+  },
+  subsection={
+  number = \fontspec{SimSun} \arabic{section}.\arabic{subsection} ,
+  format +=  \zihao{4} \fontspec{SimSun} \bfseries,
+  indent = 2em,
+  aftername = \hspace{5pt},
+  beforeskip = 2ex 
+  },
+  subsubsection={
+  number =  \fontspec{SimSun} \arabic{section}.\arabic{subsection}.\arabic{subsubsection} ,
+  format +=  \zihao{-4} \fontspec{SimSun} \bfseries,
+  indent = 2em,
+  aftername = \hspace{5pt},
+  beforeskip = 2ex,
+  fixskip = true
+  }
+  }
+
+
+
+\usepackage{ctex}
+\usepackage{fontspec} % 字体设置
+\usepackage[a4paper, left=3.17cm, right=3.17cm, top=2.54cm, bottom=2.54cm]{geometry} % 页面设置
+\usepackage{titlesec} % 标题设置
+\usepackage{setspace}  % 设置行间
+\usepackage{ifthen} %if-then-else、equal
+\usepackage{indentfirst} %首行缩进
+\usepackage{tocloft} %自定义目录
+\usepackage{xeCJK}
+\usepackage{titletoc}
+\usepackage{algorithmicx}
+\usepackage[hidelinks]{hyperref} %目录跳转
+\usepackage{graphicx}
+\usepackage{subcaption}
+% \usepackage{showframe}
+
+% 页眉设置fancy包必须在geometry后面不然页眉不居中
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % 清空当前的页眉和页脚设置否则会使用plain样式
+\renewcommand{\headrulewidth}{0.8pt} % 设置页眉线宽度
+\chead{\zihao{5} \fontspec{SimSun} \textbf{长春理工大学本科生毕业设计}} % 页眉内容
+\cfoot{\thepage}
+
+
+
+% 设置目录样式
+\renewcommand{\contentsname}{\hfill{\zihao{3} \fontspec{SimSun} \bf{目录} }\hfill} % 设置目录标题字号且居中
+
+\renewcommand{\cftsecfont}{\zihao{-4} \songti} % 设置章节标题字体为宋体小四 
+\renewcommand{\cftsubsecfont}{\zihao{-4} \songti} % 设置章节标题字体为宋体小四
+
+
+% 目录section标题设置
+
+\titlecontents{section}[0pt]{\linespread{1.5}\filright}              
+{\contentspush{\thecontentslabel\ 
+}}              
+{}{\titlerule*[3pt]{.}\contentspage}
+
+% 目录subsection标题设置
+\titlecontents{subsection}[15pt]{\linespread{1.5}\filright}              
+{\contentspush{\thecontentslabel\ 
+}}              
+{}{\titlerule*[3pt]{.}\contentspage}
+
+\titlecontents{subsubsection}[30pt]{\linespread{1.5}\filright}              
+{\contentspush{\thecontentslabel\ 
+}}              
+{}{\titlerule*[3pt]{.}\contentspage}
+% \setlength{\cftbeforesecskip}{1.25} % 设置章节标题行间距
+% 设置英文摘要标题样式
+\newcommand{\englishAbstractSection}{%
+  \section*{\centering\bf{\zihao{3}{\fontspec{Times New Roman} ABSTRACT}}}
+  \vspace{1\baselineskip}
+}
+
+% 设置中文摘要标题样式
+\newcommand{\chineseAbstractSection}{%
+  \section*{\centering\textbf{\zihao{3}{\fontspec{SimSun} 摘要}}}
+  \vspace{1\baselineskip}
+}
+
+% \renewcommand{\subsection}[1]{\textbf{\zihao{4} #1}}
+
+% 定义一个名为 'onequaters' 的环境
+\newenvironment{onequaters}
+{\begin{spacing}{1.5}\zihao{-4}}  % 在环境开始时设置行距为1.25倍和字号为小四
+{\end{spacing}}  % 在环境结束时恢复默认行距和字号
+
+% 英文字体
+\setmainfont{Times New Roman} % 常规英文字体
+\setsansfont{Arial} % 非衬线字体
+\setmonofont{Consolas} % 打字机字体，代码字体
+
+
+% 中文字体配置部分
+\setCJKmainfont[AutoFakeBold=2]{SimSun}%正文字体
+\setCJKsansfont[AutoFakeBold=3]{楷体}%无衬线字体
+\setCJKmonofont[AutoFakeBold=3]{SimHei}%等宽字体
+% 使用 AutoFakeBold 可以实现「伪粗体」，和word中相同。
+% 
+
