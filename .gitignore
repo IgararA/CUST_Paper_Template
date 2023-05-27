@@ -1,1 +1,12 @@
+*.aux
+*.log
+*.out
+*.pdf
+*.synctex*
+*.toc
+*.fdb_latexmk
+*.fls
+*.xdv
+
+document.tex
 wheel_legged_control.tex
