@@ -1,28 +1,26 @@
 \ctexset{
   section={
-  % name={第,章},
-  number = \bfseries \fontspec{SimSun} 第 \arabic{section} 章,
-  format= \bfseries \centering \zihao{3}
-  name={第,章},
-  number =  \fontspec{SimSun} \arabic{section},
-  format += \bfseries \centering \zihao{3}
-  },
+    name={第,章},
+    number =  \fontspec{SimSun} \arabic{section},
+    % number = \bfseries \fontspec{SimSun} 第 \arabic{section} 章,
+    format += \bfseries \centering \zihao{3}
+   },
   subsection={
-  number = \fontspec{SimSun} \arabic{section}.\arabic{subsection} ,
-  format +=  \zihao{4} \fontspec{SimSun} \bfseries,
-  indent = 2em,
-  aftername = \hspace{5pt},
-  beforeskip = 2ex 
-  },
+      number = \fontspec{SimSun} \arabic{section}.\arabic{subsection} ,
+      format +=  \zihao{4} \fontspec{SimSun} \bfseries,
+      indent = 2em,
+      aftername = \hspace{5pt},
+      beforeskip = 2ex
+    },
   subsubsection={
-  number =  \fontspec{SimSun} \arabic{section}.\arabic{subsection}.\arabic{subsubsection} ,
-  format +=  \zihao{-4} \fontspec{SimSun} \bfseries,
-  indent = 2em,
-  aftername = \hspace{5pt},
-  beforeskip = 2ex,
-  fixskip = true
-  }
-  }
+      number =  \fontspec{SimSun} \arabic{section}.\arabic{subsection}.\arabic{subsubsection} ,
+      format +=  \zihao{-4} \fontspec{SimSun} \bfseries,
+      indent = 2em,
+      aftername = \hspace{5pt},
+      beforeskip = 2ex,
+      fixskip = true
+    }
+}
 
 
 
@@ -61,20 +59,20 @@
 
 % 目录section标题设置
 
-\titlecontents{section}[0pt]{\linespread{1.5}\filright}              
-{\contentspush{\thecontentslabel\ 
-}}              
+\titlecontents{section}[0pt]{\linespread{1.5}\filright}
+{\contentspush{\thecontentslabel\
+  }}
 {}{\titlerule*[3pt]{.}\contentspage}
 
 % 目录subsection标题设置
-\titlecontents{subsection}[15pt]{\linespread{1.5}\filright}              
-{\contentspush{\thecontentslabel\ 
-}}              
+\titlecontents{subsection}[15pt]{\linespread{1.5}\filright}
+{\contentspush{\thecontentslabel\
+  }}
 {}{\titlerule*[3pt]{.}\contentspage}
 
-\titlecontents{subsubsection}[30pt]{\linespread{1.5}\filright}              
-{\contentspush{\thecontentslabel\ 
-}}              
+\titlecontents{subsubsection}[30pt]{\linespread{1.5}\filright}
+{\contentspush{\thecontentslabel\
+  }}
 {}{\titlerule*[3pt]{.}\contentspage}
 % \setlength{\cftbeforesecskip}{1.25} % 设置章节标题行间距
 % 设置英文摘要标题样式
@@ -94,7 +92,7 @@
 % 定义一个名为 'onequaters' 的环境
 \newenvironment{onequaters}
 {\begin{spacing}{1.5}\zihao{-4}}  % 在环境开始时设置行距为1.25倍和字号为小四
-{\end{spacing}}  % 在环境结束时恢复默认行距和字号
+    {\end{spacing}}  % 在环境结束时恢复默认行距和字号
 
 % 英文字体
 \setmainfont{Times New Roman} % 常规英文字体
