@@ -2,14 +2,15 @@
   section={
     name={第,章},
     number =  \fontspec{SimSun} \arabic{section},
-    format += \bfseries \centering \zihao{3} \setcounter{figure}{0}
+    format += \bfseries \centering \zihao{3} \setcounter{figure}{0} \setcounter{table}{0} \setcounter{equation}{0}
    },
   subsection={
   number = \fontspec{SimSun} \arabic{section}.\arabic{subsection} ,
   format += \bfseries \zihao{4} \fontspec{SimSun},
   indent = 2em,
   aftername = \hspace{5pt},
-  beforeskip = 2ex 
+  beforeskip = 2ex,
+  break = \Needspace{.5\textheight}
   },
   subsubsection={
   number =  \fontspec{SimSun} \arabic{section}.\arabic{subsection}.\arabic{subsubsection} ,
@@ -17,9 +18,8 @@
   indent = 2em,
   aftername = \hspace{5pt},
   beforeskip = 2ex,
-  fixskip = true
   }
-  }
+}
 
 
 
@@ -38,7 +38,8 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{svg}
+\usepackage{amsmath} % 加载公式宏包
+\usepackage{booktabs} % 表格粗体线
 % \usepackage{showframe}
 
 % 页眉设置fancy包必须在geometry后面不然页眉不居中
@@ -76,6 +77,9 @@
   }}
 {}{\titlerule*[3pt]{.}\contentspage}
 
+
+\newcommand{\sectionbreak}{\clearpage} % 该section内容结束之后自动分页
+
 % 设置英文摘要标题样式
 \newcommand{\englishAbstractSection}{%
   \section*{\centering\bf{\zihao{3}{\fontspec{Times New Roman} ABSTRACT}}}
@@ -87,8 +91,6 @@
   \section*{\centering\textbf{\zihao{3}{\fontspec{SimSun} 摘要}}}
   \vspace{1\baselineskip}
 }
-
-% \renewcommand{\subsection}[1]{\textbf{\zihao{4} #1}}
 
 % 定义一个名为 'onequaters' 的环境
 \newenvironment{onequaters}
@@ -109,8 +111,14 @@
  
 
 \DeclareCaptionLabelFormat{figureLableFormat}{\zihao{5}{图\thesection.\arabic{figure}}}
+\DeclareCaptionLabelFormat{tableLabelFormat}{\zihao{5}{表\thesection.\arabic{table}}}
 \DeclareCaptionFormat{figureFormat}{\zihao{5}#1#2#3} % label sep及caption本身字号设置
+
+\captionsetup[table]{labelformat=tableLabelFormat, labelsep=space}
 
 
 \captionsetup[subfigure]{labelformat=brace, labelsep=space, format=figureFormat} % 子图a)效果加空格
 \captionsetup[figure]{labelformat=figureLableFormat, labelsep=space, format=figureFormat}
+
+\renewcommand{\theequation}{\thesection-\arabic{equation}}
+
