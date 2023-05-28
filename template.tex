@@ -2,7 +2,7 @@
   section={
     name={第,章},
     number =  \fontspec{SimSun} \arabic{section},
-    format += \bfseries \centering \zihao{3}
+    format += \bfseries \centering \zihao{3} \setcounter{figure}{0}
    },
   subsection={
   number = \fontspec{SimSun} \arabic{section}.\arabic{subsection} ,
@@ -38,6 +38,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{svg}
 % \usepackage{showframe}
 
 % 页眉设置fancy包必须在geometry后面不然页眉不居中
@@ -55,26 +56,26 @@
 
 \renewcommand{\cftsecfont}{\zihao{-4} \songti} % 设置章节标题字体为宋体小四 
 \renewcommand{\cftsubsecfont}{\zihao{-4} \songti} % 设置章节标题字体为宋体小四
-
+\renewcommand{\cftsubsubsecfont}{\zihao{-4} \songti}
 
 % 目录section标题设置
 
-\titlecontents{section}[0pt]{\linespread{1.5}\filright}
+\titlecontents{section}[0pt]{\filright}
 {\contentspush{\thecontentslabel\
   }}
 {}{\titlerule*[3pt]{.}\contentspage}
 
 % 目录subsection标题设置
-\titlecontents{subsection}[15pt]{\linespread{1.5}\filright}
+\titlecontents{subsection}[15pt]{\filright}
 {\contentspush{\thecontentslabel\
   }}
 {}{\titlerule*[3pt]{.}\contentspage}
 
-\titlecontents{subsubsection}[30pt]{\linespread{1.5}\filright}
+\titlecontents{subsubsection}[30pt]{\filright}
 {\contentspush{\thecontentslabel\
   }}
 {}{\titlerule*[3pt]{.}\contentspage}
-% \setlength{\cftbeforesecskip}{1.25} % 设置章节标题行间距
+
 % 设置英文摘要标题样式
 \newcommand{\englishAbstractSection}{%
   \section*{\centering\bf{\zihao{3}{\fontspec{Times New Roman} ABSTRACT}}}
