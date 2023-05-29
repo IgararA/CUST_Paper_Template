@@ -40,6 +40,8 @@
 \usepackage{subcaption}
 \usepackage{amsmath} % 加载公式宏包
 \usepackage{booktabs} % 表格粗体线
+\usepackage{makecell} % 表格内换行
+\usepackage{mathtools}
 % \usepackage{showframe}
 
 % 页眉设置fancy包必须在geometry后面不然页眉不居中
@@ -120,5 +122,7 @@
 \captionsetup[subfigure]{labelformat=brace, labelsep=space, format=figureFormat} % 子图a)效果加空格
 \captionsetup[figure]{labelformat=figureLableFormat, labelsep=space, format=figureFormat}
 
-\renewcommand{\theequation}{\thesection-\arabic{equation}}
+\renewcommand{\theequation}{\thesection-\arabic{equation}} % 公式编号覆写
+
+
 
