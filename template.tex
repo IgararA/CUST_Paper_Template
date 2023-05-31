@@ -24,6 +24,8 @@
 
 
 \usepackage{ctex}
+\usepackage{amssymb} % for mathbb
+\usepackage{gensymb} % for \degree
 \usepackage{fontspec} % 字体设置
 \usepackage[a4paper, left=3.17cm, right=3.17cm, top=2.54cm, bottom=2.54cm]{geometry} % 页面设置
 \usepackage{titlesec} % 标题设置
@@ -42,6 +44,7 @@
 \usepackage{booktabs} % 表格粗体线
 \usepackage{makecell} % 表格内换行
 \usepackage{mathtools}
+\usepackage{listings} % 代码
 % \usepackage{showframe}
 
 % 页眉设置fancy包必须在geometry后面不然页眉不居中
@@ -99,11 +102,37 @@
 {\begin{spacing}{1.5}\zihao{-4}}  % 在环境开始时设置行距为1.25倍和字号为小四
     {\end{spacing}}  % 在环境结束时恢复默认行距和字号
 
+
+\newfontfamily{\monospace}{Courier New} % 等宽字体
+
 % 英文字体
 \setmainfont{Times New Roman} % 常规英文字体
 \setsansfont{Arial} % 非衬线字体
-\setmonofont{Consolas} % 打字机字体，代码字体
+\setmonofont{Courier New} % 打字机字体，代码字体
 
+% 代码格式
+
+\lstdefinestyle{defaultCodeStyle}{
+    % basicstyle=\ttfamily\footnotesize,
+    % backgroundcolor=\color{backcolour},   
+    % commentstyle=\color{codegreen},
+    % keywordstyle=\color{magenta},
+    % numberstyle=\tiny\color{codegray},
+    % stringstyle=\color{codepurple},
+    basicstyle=\monospace\small\singlespace, % singlespace: set line spacing
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+
+\lstset{style=defaultCodeStyle}
 
 % 中文字体配置部分
 \setCJKmainfont[AutoFakeBold=2]{SimSun}%正文字体
