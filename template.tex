@@ -42,6 +42,9 @@
 \usepackage{booktabs} % 表格粗体线
 \usepackage{makecell} % 表格内换行
 \usepackage{mathtools}
+\usepackage{enumitem} % 续航序列
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
 % \usepackage{showframe}
 
 % 页眉设置fancy包必须在geometry后面不然页眉不居中
@@ -125,4 +128,18 @@
 \renewcommand{\theequation}{\thesection-\arabic{equation}} % 公式编号覆写
 
 
+\setlist[itemize]{
+  before=\setstretch{1.0},
+  after=\vspace{-\baselineskip},
+}
 
+% 设置enumerate环境的字体和行间距
+\setlist[enumerate]{
+  before=\setstretch{1.0},
+  after=\vspace{-\baselineskip},
+}
+
+% 算法包语言设置
+\SetKwInput{KwData}{输入}
+\SetKwInput{KwResult}{输出}
+\renewcommand{\algorithmcfname}{算法}
