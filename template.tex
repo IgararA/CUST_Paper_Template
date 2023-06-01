@@ -35,6 +35,7 @@
 \usepackage{tocloft} %自定义目录
 \usepackage{xeCJK}
 \usepackage{titletoc}
+\usepackage{hhline} % 表格线
 \usepackage{algorithmicx}
 \usepackage[hidelinks]{hyperref} %目录跳转
 \usepackage{graphicx}
@@ -47,6 +48,11 @@
 \usepackage{listings} % 代码
 \usepackage{enumitem} % 续航序列
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{cleveref} % 图/表/标签索引引用
+
+% \usepackage[CJK]{ucharclasses} % for fallback glyphs / mixing fonts. 
+% See: https://blog.michael.franzl.name/2014/12/10/xelatex-unicode-font-fallback-unsupported-characters/
+% http://ctan.math.utah.edu/ctan/tex-archive/macros/xetex/latex/ucharclasses/ucharclasses.pdf
 
 % \usepackage{showframe}
 
@@ -113,9 +119,11 @@
 \setsansfont{Arial} % 非衬线字体
 \setmonofont{Courier New} % 打字机字体，代码字体
 
+% \setmathrm{LMRoman10-Regular}
+
 % 代码格式
 
-\lstdefinestyle{defaultCodeStyle}{
+\lstdefinestyle{defaultCodeStyle}{ 
     % basicstyle=\ttfamily\footnotesize,
     % backgroundcolor=\color{backcolour},   
     % commentstyle=\color{codegreen},
@@ -148,6 +156,10 @@
 \DeclareCaptionLabelFormat{tableLabelFormat}{\zihao{5}{表\thesection.\arabic{table}}}
 \DeclareCaptionFormat{figureFormat}{\zihao{5}#1#2#3} % label sep及caption本身字号设置
 
+\crefformat{figure}{{\thesection.#2#1#3}}
+\crefformat{table}{{\thesection.#2#1#3}}
+\crefformat{equation}{#2#1#3}
+
 \captionsetup[table]{labelformat=tableLabelFormat, labelsep=space}
 
 
@@ -163,9 +175,13 @@
 }
 
 % 设置enumerate环境的字体和行间距
+% \setlist[enumerate]{
+%   before=\setstretch{1.0},
+%   after=\vspace{-\baselineskip},
+% }
 \setlist[enumerate]{
-  before=\setstretch{1.0},
-  after=\vspace{-\baselineskip},
+  before=\vspace{-\baselineskip}\singlespace\zihao{-4},
+  after=\vspace{-\baselineskip}\vspace{0.5em}
 }
 
 % 算法包语言设置
