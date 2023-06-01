@@ -24,6 +24,8 @@
 
 
 \usepackage{ctex}
+\usepackage{amssymb} % for mathbb
+\usepackage{gensymb} % for \degree
 \usepackage{fontspec} % 字体设置
 \usepackage[a4paper, left=3.17cm, right=3.17cm, top=2.54cm, bottom=2.54cm]{geometry} % 页面设置
 \usepackage{titlesec} % 标题设置
@@ -33,6 +35,7 @@
 \usepackage{tocloft} %自定义目录
 \usepackage{xeCJK}
 \usepackage{titletoc}
+\usepackage{hhline} % 表格线
 \usepackage{algorithmicx}
 \usepackage[hidelinks]{hyperref} %目录跳转
 \usepackage{graphicx}
@@ -42,8 +45,14 @@
 \usepackage{booktabs} % 表格粗体线
 \usepackage{makecell} % 表格内换行
 \usepackage{mathtools}
+\usepackage{listings} % 代码
 \usepackage{enumitem} % 续航序列
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{cleveref} % 图/表/标签索引引用
+
+% \usepackage[CJK]{ucharclasses} % for fallback glyphs / mixing fonts. 
+% See: https://blog.michael.franzl.name/2014/12/10/xelatex-unicode-font-fallback-unsupported-characters/
+% http://ctan.math.utah.edu/ctan/tex-archive/macros/xetex/latex/ucharclasses/ucharclasses.pdf
 
 % \usepackage{showframe}
 
@@ -102,11 +111,39 @@
 {\begin{spacing}{1.5}\zihao{-4}}  % 在环境开始时设置行距为1.25倍和字号为小四
     {\end{spacing}}  % 在环境结束时恢复默认行距和字号
 
+
+\newfontfamily{\monospace}{Courier New} % 等宽字体
+
 % 英文字体
 \setmainfont{Times New Roman} % 常规英文字体
 \setsansfont{Arial} % 非衬线字体
-\setmonofont{Consolas} % 打字机字体，代码字体
+\setmonofont{Courier New} % 打字机字体，代码字体
 
+% \setmathrm{LMRoman10-Regular}
+
+% 代码格式
+
+\lstdefinestyle{defaultCodeStyle}{ 
+    % basicstyle=\ttfamily\footnotesize,
+    % backgroundcolor=\color{backcolour},   
+    % commentstyle=\color{codegreen},
+    % keywordstyle=\color{magenta},
+    % numberstyle=\tiny\color{codegray},
+    % stringstyle=\color{codepurple},
+    basicstyle=\monospace\small\singlespace, % singlespace: set line spacing
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+
+\lstset{style=defaultCodeStyle}
 
 % 中文字体配置部分
 \setCJKmainfont[AutoFakeBold=2]{SimSun}%正文字体
@@ -118,6 +155,10 @@
 \DeclareCaptionLabelFormat{figureLableFormat}{\zihao{5}{图\thesection.\arabic{figure}}}
 \DeclareCaptionLabelFormat{tableLabelFormat}{\zihao{5}{表\thesection.\arabic{table}}}
 \DeclareCaptionFormat{figureFormat}{\zihao{5}#1#2#3} % label sep及caption本身字号设置
+
+\crefformat{figure}{{\thesection.#2#1#3}}
+\crefformat{table}{{\thesection.#2#1#3}}
+\crefformat{equation}{#2#1#3}
 
 \captionsetup[table]{labelformat=tableLabelFormat, labelsep=space}
 
@@ -134,9 +175,13 @@
 }
 
 % 设置enumerate环境的字体和行间距
+% \setlist[enumerate]{
+%   before=\setstretch{1.0},
+%   after=\vspace{-\baselineskip},
+% }
 \setlist[enumerate]{
-  before=\setstretch{1.0},
-  after=\vspace{-\baselineskip},
+  before=\vspace{-\baselineskip}\singlespace\zihao{-4},
+  after=\vspace{-\baselineskip}\vspace{0.5em}
 }
 
 % 算法包语言设置
