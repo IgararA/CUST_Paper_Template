@@ -34,16 +34,20 @@
 \usepackage{xeCJK}
 \usepackage{titletoc}
 \usepackage{algorithmicx}
-\usepackage[hidelinks]{hyperref} %目录跳转
+\usepackage[hidelinks, backref]{hyperref} %目录、文献跳转
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{amsmath} % 加载公式宏包
+\usepackage{cleveref}
 \usepackage{booktabs} % 表格粗体线
 \usepackage{makecell} % 表格内换行
 \usepackage{mathtools}
 \usepackage{enumitem} % 续航序列
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{gbt7714}
+
+\bibliographystyle{gbt7714-numerical} % 采用GBT-7714格式
 
 % \usepackage{showframe}
 
@@ -88,13 +92,13 @@
 % 设置英文摘要标题样式
 \newcommand{\englishAbstractSection}{%
   \section*{\centering\bf{\zihao{3}{\fontspec{Times New Roman} ABSTRACT}}}
-  \vspace{1\baselineskip}
+  \vspace{0.5\baselineskip}
 }
 
 % 设置中文摘要标题样式
 \newcommand{\chineseAbstractSection}{%
   \section*{\centering\textbf{\zihao{3}{\fontspec{SimSun} 摘要}}}
-  \vspace{1\baselineskip}
+  \vspace{0.5\baselineskip}
 }
 
 % 定义一个名为 'onequaters' 的环境
@@ -107,6 +111,7 @@
 \setsansfont{Arial} % 非衬线字体
 \setmonofont{Consolas} % 打字机字体，代码字体
 
+\setmathrm{LMRoman10-Regular}
 
 % 中文字体配置部分
 \setCJKmainfont[AutoFakeBold=2]{SimSun}%正文字体
@@ -118,25 +123,29 @@
 \DeclareCaptionLabelFormat{figureLableFormat}{\zihao{5}{图\thesection.\arabic{figure}}}
 \DeclareCaptionLabelFormat{tableLabelFormat}{\zihao{5}{表\thesection.\arabic{table}}}
 \DeclareCaptionFormat{figureFormat}{\zihao{5}#1#2#3} % label sep及caption本身字号设置
-
 \captionsetup[table]{labelformat=tableLabelFormat, labelsep=space}
 
 
 \captionsetup[subfigure]{labelformat=brace, labelsep=space, format=figureFormat} % 子图a)效果加空格
 \captionsetup[figure]{labelformat=figureLableFormat, labelsep=space, format=figureFormat}
 
+\crefformat{figure}{{图\thesection.#2#1#3}}
+\crefformat{table}{{表\thesection.#2#1#3}}
+\crefformat{equation}{式(#2#1#3)}
+
 \renewcommand{\theequation}{\thesection-\arabic{equation}} % 公式编号覆写
 
 
 \setlist[itemize]{
-  before=\setstretch{1.0},
+  before=\setstretch{1.0}\zihao{-4},
   after=\vspace{-\baselineskip},
 }
 
 % 设置enumerate环境的字体和行间距
 \setlist[enumerate]{
-  before=\setstretch{1.0},
+  before=\setstretch{1.0}\zihao{-4},
   after=\vspace{-\baselineskip},
+  label=\arabic*)
 }
 
 % 算法包语言设置
