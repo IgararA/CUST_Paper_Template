@@ -49,6 +49,7 @@
 \usepackage{enumitem} % 续航序列
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage{cleveref} % 图/表/标签索引引用
+\usepackage{pdfpages}
 
 % \usepackage[CJK]{ucharclasses} % for fallback glyphs / mixing fonts. 
 % See: https://blog.michael.franzl.name/2014/12/10/xelatex-unicode-font-fallback-unsupported-characters/
@@ -103,6 +104,11 @@
 % 设置中文摘要标题样式
 \newcommand{\chineseAbstractSection}{%
   \section*{\centering\textbf{\zihao{3}{\fontspec{SimSun} 摘要}}}
+  \vspace{1\baselineskip}
+}
+
+\newcommand{\acknowledgementsSection}{
+  \section*{\centering\textbf{\zihao{3}{\fontspec{SimSun} 致谢}}}
   \vspace{1\baselineskip}
 }
 
@@ -181,8 +187,23 @@
 % }
 \setlist[enumerate]{
   before=\vspace{-\baselineskip}\singlespace\zihao{-4},
-  after=\vspace{-\baselineskip}\vspace{0.5em}
+  after=\vspace{-\baselineskip}\vspace{0.5em},
+  label=\arabic*)
 }
+
+% \setlist[itemize]{
+%   before=\vspace{-\baselineskip}\singlespace\zihao{-4},
+%   after=\vspace{-\baselineskip}\vspace{0.5em},
+% }
+
+\setlist[itemize]{
+  before=\zihao{-4},
+}
+
+% https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end
+% Use this command (\numberthis) in align* environment (not align environment) after the line where you want equation tag to appear. 
+% Note that align* environment does not tag equations by default while align environment (without asterisk) does. 
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
 % 算法包语言设置
 \SetKwInput{KwData}{输入}
