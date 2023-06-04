@@ -37,7 +37,7 @@
 \usepackage{titletoc}
 \usepackage{hhline} % 表格线
 \usepackage{algorithmicx}
-\usepackage[hidelinks, backref]{hyperref} %目录、文献跳转
+\usepackage[hidelinks]{hyperref} %目录、文献跳转
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -55,9 +55,13 @@
 % \usepackage[CJK]{ucharclasses} % for fallback glyphs / mixing fonts. 
 % See: https://blog.michael.franzl.name/2014/12/10/xelatex-unicode-font-fallback-unsupported-characters/
 % http://ctan.math.utah.edu/ctan/tex-archive/macros/xetex/latex/ucharclasses/ucharclasses.pdf
-\usepackage{gbt7714}
 
-\bibliographystyle{gbt7714-numerical} % 采用GBT-7714格式
+
+% \usepackage[sort&compress]{gbt7714}
+% \bibliographystyle{gbt7714-numerical} % 采用GBT-7714格式
+
+\usepackage[backend=biber,style=gb7714-2015,gbnamefmt=givenahead]{biblatex}
+\addbibresource[location=local]{citations.bib}
 
 % \usepackage{showframe}
 
@@ -111,10 +115,15 @@
   \vspace{0.5\baselineskip}
 }
 
-\newcommand{\acknowledgementsSection}{
-  \section*{\centering\textbf{\zihao{3}{\fontspec{SimSun} 致谢}}}
+\newcommand{\numberlesssection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  \section*{\centering\textbf{\zihao{3}{\fontspec{SimSun} #1}}}
   \vspace{1\baselineskip}
 }
+
+
+
 
 % 定义一个名为 'onequaters' 的环境
 \newenvironment{onequaters}
