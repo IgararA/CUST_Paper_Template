@@ -1,19 +1,19 @@
 \ctexset{
   section={
     name={第,章},
-    number =  \fontspec{SimSun} \arabic{section},
-    format += \bfseries \centering \zihao{3} \setcounter{figure}{0} \setcounter{table}{0} \setcounter{equation}{0}
+    number =  \arabic{section},
+    format += \centering \fontspec{SimSun} \bfseries \zihao{3} \setcounter{figure}{0} \setcounter{table}{0} \setcounter{equation}{0}
    },
   subsection={
-  number = \fontspec{SimSun} \arabic{section}.\arabic{subsection} ,
-  format += \bfseries \zihao{4} \fontspec{SimSun},
+  number =  \arabic{section}.\arabic{subsection} ,
+  format += \fontspec{SimSun} \bfseries \zihao{4},
   indent = 2em,
   aftername = \hspace{5pt},
   beforeskip = 2ex,
   break = \Needspace{.5\textheight}
   },
   subsubsection={
-  number =  \fontspec{SimSun} \arabic{section}.\arabic{subsection}.\arabic{subsubsection} ,
+  number =  \arabic{section}.\arabic{subsection}.\arabic{subsubsection} ,
   format += \bfseries \zihao{-4} \fontspec{SimSun} ,
   indent = 2em,
   aftername = \hspace{5pt},
@@ -42,7 +42,6 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{amsmath} % 加载公式宏包
-\usepackage{cleveref}
 \usepackage{booktabs} % 表格粗体线
 \usepackage{makecell} % 表格内换行
 \usepackage{mathtools}
