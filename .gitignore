@@ -12,6 +12,9 @@
 *.blg
 *.brf
 
+*.pygtex
+*.pygstyle
+
 
 document.tex
 wheel_legged_control.tex
