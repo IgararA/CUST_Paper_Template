@@ -2,11 +2,11 @@
   section={
     name={第,章},
     number =  \arabic{section},
-    format += \centering \fontspec{SimSun} \bfseries \zihao{3} \setcounter{figure}{0} \setcounter{table}{0} \setcounter{equation}{0}
+    format += \centering \bfseries \zihao{3} \setcounter{figure}{0} \setcounter{table}{0} \setcounter{equation}{0}
    },
   subsection={
-  number =  \arabic{section}.\arabic{subsection} ,
-  format += \fontspec{SimSun} \bfseries \zihao{4},
+  number =   \arabic{section}.\arabic{subsection} ,
+  format +=  \bfseries \zihao{4},
   indent = 2em,
   aftername = \hspace{5pt},
   beforeskip = 2ex,
@@ -14,7 +14,7 @@
   },
   subsubsection={
   number =  \arabic{section}.\arabic{subsection}.\arabic{subsubsection} ,
-  format += \bfseries \zihao{-4} \fontspec{SimSun} ,
+  format += \bfseries \zihao{-4},
   indent = 2em,
   aftername = \hspace{5pt},
   beforeskip = 2ex,
@@ -34,7 +34,7 @@
 \usepackage{xeCJK}
 \usepackage{titletoc}
 \usepackage{algorithmicx}
-\usepackage[hidelinks, backref, bookmarksnumbered=true]{hyperref} %目录、文献跳转
+\usepackage[hidelinks, bookmarksnumbered=true]{hyperref} %目录、文献跳转
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -128,7 +128,11 @@
     {\end{spacing}}  % 在环境结束时恢复默认行距和字号
 
 % 英文字体
-\setmainfont{Times New Roman} % 常规英文字体
+\setmainfont{Times New Roman}
+  [
+    AutoFakeBold
+  ]
+% 常规英文字体
 \setsansfont{Arial} % 非衬线字体
 \setmonofont{Consolas} % 打字机字体，代码字体
 
@@ -173,3 +177,5 @@
 \SetKwInput{KwData}{输入}
 \SetKwInput{KwResult}{输出}
 \renewcommand{\algorithmcfname}{算法}
+
+\setlength{\bibsep}{0\baselineskip} %缩短两个参考文献之间的间距
